@@ -13,6 +13,8 @@
 #node modules 
 node_modules
 
+.vscode
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
