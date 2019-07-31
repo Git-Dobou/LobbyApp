@@ -1,0 +1,113 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Registration Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <!-- Theme style -->
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<h1 class="login-box-msg app-text-center">Se connecter</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="padding: 20px">
+    <div class="form-group">
+        <label for="username" style="font-size: 20px">Nom d'utilisateur</label>
+        <div class="input-group mb-3">
+            <input type="text" formControlName="username" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && form.username.errors }" />
+            <div class="input-group-append input-group-text">
+                <span class="fas fa-user"></span>
+            </div>
+        </div>
+        <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
+            <div *ngIf="form.username.errors.required">Username is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" style="font-size: 20px">Mot de passe</label>
+        <div class="input-group mb-3">
+            <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+            <div class="input-group-append input-group-text">
+                <span class="fas fa-lock"></span>
+            </div>
+        </div>
+        <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+            <div *ngIf="form.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button style="width: 100%; font-size: 25px" [disabled]="loading" class="btn btn-primary">Connection</button>
+        <img *ngIf="loading"
+            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+</form>
+
+<div style="padding: 20px">
+    <p>
+        <a class="app-text-center" href="#">Mot de passe oublié ?</a>
+    </p>
+
+    <div style="margin-top: 20px">
+        <button [routerLink]='["/register"]' type="submit" style="width: 100%; font-size: 25px"
+            class="btn btn-primary">Creer un nouveau compte</button>
+    </div>
+</div>
+
+
+<!-- <div class="login-box" style="color: rgb(0, 0, 0)">
+    <div class="card-body login-card-body">
+        <h1 class="login-box-msg app-text-center">Se connecter</h1>
+
+        <form method="post" style="margin-top: 20px">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" type="email" class="form-control"
+                    placeholder="Nom d'utilisateur">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control"
+                    placeholder="Mot de passe">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-lock"></span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="icheck-primary">
+                        <input type="checkbox" id="remember" style="margin-right: 20px">
+                        <label for="remember">
+                            Enreigistrer mes données
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" (click)="loginService.login(userName, password)"
+                        class="btn btn-primary btn-block btn-flat app-button-dark">Connecter</button>
+                </div>
+            </div>
+        </form>
+
+        <p style="margin-top: 20px">
+            <a class="app-text-center" href="#">Mot de passe oublié ?</a>
+        </p>
+
+        <div style="margin-top: 20px">
+            <button [routerLink]='["/register"]' type="submit"
+                class="btn btn-primary btn-block btn-flat app-button-dark">Creer un nouveau compte</button>
+        </div>
+    </div>
+</div> -->

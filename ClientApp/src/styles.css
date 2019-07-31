@@ -1,0 +1,12 @@
+.app-text-center{
+    text-align: center;
+}
+
+.app-button-dark{
+    background-color: transparent;
+    border: solid 1px white;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 15px; 
+    background-color: #007bff;
+}

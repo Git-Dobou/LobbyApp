@@ -1,0 +1,22 @@
+<header>
+  <nav style="background: black; height: 45px;" *ngIf="loginService.IsMemberLoged.value">
+    <div style="display: grid; grid-template-columns: repeat(4, 25%); width: 100%; height: 100%; align-items: center; color: white; ">
+
+      <div [routerLink]='["/home"]' style="grid-column: 1; text-align: center; height: 45px">
+        <span style="font-size: 30px" class="fas fa-home"></span>
+      </div>
+
+      <div [routerLink]='["/my"]' style="grid-column: 2; text-align: center; height: 45px">
+        <span style="font-size: 30px" class="fas fa-user-alt"></span>
+      </div>
+
+      <div [routerLink]='["/sessions"]' style="grid-column: 3; text-align: center; height: 45px">
+        <span style="font-size: 30px" class="fas fa-list"></span>
+      </div>
+
+      <div [routerLink]='["/login"]' (click)="loginService.logout()" style="height: 45px; grid-column: 4; text-align: center">
+        <span style="font-size: 30px" class="fas fa-sign-out-alt"></span>
+      </div>
+    </div>
+  </nav>
+</header>

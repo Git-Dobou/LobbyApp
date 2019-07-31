@@ -1,0 +1,113 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Registration Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <!-- Theme style -->
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<div
+    style="font-size: 20px; margin-top: 100px; display: grid; grid-template-columns: repeat(8, 45px); 
+    grid-template-rows: repeat(8, 45px); width: 360px; height: 100%;">
+    <div style="grid-column-start: 1; grid-row-start: 1; grid-row-end: 5; grid-column-start: 1; grid-column-end: 5;">
+        <img [src]="'data:image/jpg;base64,'+ loginService.CurrentMemeber.value.image"
+            style="width: 180px; height: 180px;" />
+    </div>
+    <div style="grid-column-start: 6; grid-row: 1;">
+        <label>{{loginService.CurrentMemeber.value.firstName}}</label>
+    </div>
+    <div style="grid-column-start: 6; grid-row: 2;">
+        <label>{{loginService.CurrentMemeber.value.lastName}}</label>
+    </div>
+
+    <div style="grid-row: 6; grid-column-start: 1; grid-column-end: 4">
+        <label>Naissance</label>
+    </div>
+    <div style="grid-column-start: 4; grid-column-end: 9; grid-row: 6;">
+        <label>{{loginService.CurrentMemeber.value.birdDay | date:'longDate'}}</label>
+    </div>
+
+    <div style="grid-row: 7; grid-column-start: 1; grid-column-end: 4">
+        <label>Reception</label>
+    </div>
+    <div style="grid-column-start: 4; grid-column-end: 9; grid-row: 7;">
+        <label>{{loginService.CurrentMemeber.value.date_Session | date:'longDate'}}</label>
+    </div>
+
+    <div style="grid-column-start: 1; grid-row: 8; grid-column-start: 1; grid-column-end: 4; grid-row-start: 8; grid-row-end: 10;">
+        <label>Adresse</label>
+    </div>
+    <div style="grid-column-start: 4; grid-column-end: 9; grid-row: 8 / span 3">
+        {{loginService.CurrentMemeber.value.address.street}}
+        <br>
+        {{loginService.CurrentMemeber.value.address.code}} {{loginService.CurrentMemeber.value.address.city}}
+        <br>
+        {{loginService.CurrentMemeber.value.address.moble}}
+    </div>
+
+    <div style="grid-row: 12; grid-column-start: 1; grid-column-end: 4">
+        <label>Dete</label>
+    </div>
+    <div style="grid-column-start: 4; grid-column-end: 9; grid-row: 12;">
+        <label>{{loginService.CurrentMemeber.value.debt | currency}}</label>
+    </div>
+
+    <div style="grid-row: 13; grid-column-start: 1; grid-column-end: 4 ">
+        <label>Fond ouvert</label>
+    </div>
+    <div style="grid-column-start: 4; grid-row: 13;">
+        <label>{{loginService.CurrentMemeber.value.to_Pay_Open | currency}}</label>
+    </div>
+</div>
+<!-- 
+<table class="table table-striped" style="margin-top: 50px; color: white; width: 100%">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th rowspan="3" scope="row">
+            </th>
+            <td scope="row">{{loginService.CurrentMemeber.value.lastName}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Nom</th>
+            <td scope="row">{{loginService.CurrentMemeber.value.firstName}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Date de naissance</th>
+            <td scope="row">{{loginService.CurrentMemeber.value.birdDay | date:'longDate'}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Adresse</th>
+            <td scope="row">
+                
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Date de reception</th>
+            <td scope="row">{{loginService.CurrentMemeber.value.date_Session | date:'longDate'}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Dete</th>
+            <td scope="row">{{loginService.CurrentMemeber.value.debt | currency}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Fond ouvert</th>
+            <td scope="row">{{loginService.CurrentMemeber.value.to_Pay_Open | currency}}</td>
+        </tr>
+    </tbody>
+</table> -->

@@ -1,0 +1,42 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Registration Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <!-- Theme style -->
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<div style="margin-top: 75px">
+    <h5 style="text-align: center; font-size: x-large; font-style: italic"> 
+        <b> Liste de seances : 01.2020 - 12.2020</b>
+    </h5>
+</div>
+<div style="top: 100px; width: 100%; margin-top: 20px; font-size: x-large">
+    <table class="table table-striped table-hover" style="width: 100%; color: black">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let session of sessionService.Sessions.value; let i = index"
+                (click)=sessionService.selectSession(session) [routerLink]='["/report"]'>
+                <th scope="row">{{i}}</th>
+                <td>{{session.member.firstName}}</td>
+                <td>15.01.2020</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
